@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { getCorsHeaders, handleOptions } from '@/lib/cors';
+import { getCorsHeaders, handleOptions } from '@/app/lib/cors';
+
 
 export async function OPTIONS() {
   return handleOptions();
