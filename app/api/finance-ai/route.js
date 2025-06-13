@@ -1,5 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import { getCorsHeaders, handleOptions } from '@/lib/cors';
+
+export async function OPTIONS() {
+  return handleOptions();
+}
 
 export async function GET() {
   const imagePath = path.join(process.cwd(), 'app', 'assets', 'finance-ai.png');
@@ -15,6 +20,7 @@ export async function GET() {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
+        ...getCorsHeaders(),
       },
     }
   );
